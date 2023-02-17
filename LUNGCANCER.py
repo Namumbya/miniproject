@@ -1,5 +1,5 @@
 # Import necessary libraries
-import pickle
+import joblib
 import numpy as np
 import streamlit as st
 st.set_page_config()
@@ -26,7 +26,7 @@ st.markdown("""
   </style>
 """, unsafe_allow_html=True)
 # Load the trained model
-loaded_model = pickle.load(open("modelll.pkl", "rb"))
+loaded_model = joblib.load(open("modelll.joblib", "rb"))
 
 # Create a Streamlit app
 def predict_app():
