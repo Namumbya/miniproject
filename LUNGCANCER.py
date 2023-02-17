@@ -53,21 +53,21 @@ def predict_app():
      
     
     # Preprocess the features
-    #features = [
-     #   AGE,
-      #  1 if GENDER == "Male" else 0,
-       # 1 if TOBACCO_SMOKING == "Yes" else 0,
-        #1 if ALLERGY== "Yes" else 0,
-        #1 if FATIGUE == "Yes" else 0,
-        #1 if COUGHING == "Yes" else 0,
-        #1 if ALCOHOL_CONSUMING == "Yes" else 0,
-        #1 if WHEEZING == "Yes" else 0,
-        #1 if SHORTNESS_OF_BREATH == "Yes" else 0,
-        #1 if CHEST_PAIN == "Yes" else 0,
-        #1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
-        #1 if CHRONIC_DISEASE == "Yes" else 0,
-        #1 if YELLOW_FINGERS == "Yes" else 0
-    #]
+    features = [
+        AGE,
+        1 if GENDER == "Male" else 0,
+        1 if TOBACCO_SMOKING == "Yes" else 0,
+        1 if ALLERGY== "Yes" else 0,
+        1 if FATIGUE == "Yes" else 0,
+        1 if COUGHING == "Yes" else 0,
+        1 if ALCOHOL_CONSUMING == "Yes" else 0,
+        1 if WHEEZING == "Yes" else 0,
+        1 if SHORTNESS_OF_BREATH == "Yes" else 0,
+        1 if CHEST_PAIN == "Yes" else 0,
+        1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
+        1 if CHRONIC_DISEASE == "Yes" else 0,
+        1 if YELLOW_FINGERS == "Yes" else 0
+    ]
     #Add a prediction button
     if st.button("Predict"):
         # Make the prediction
