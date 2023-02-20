@@ -15,12 +15,7 @@ st.markdown("""
     backgorund-color:lightgray;
 
   }
-  button{
-  
-  text-align:center;
-  
-
-  }
+ 
  
   </style>
 """, unsafe_allow_html=True)
