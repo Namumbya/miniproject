@@ -35,7 +35,7 @@ def predict_app():
     AGE = st.number_input("Age:", min_value=0,max_value=100)
     GENDER = st.radio("Gender:", ["Male", "Female"])
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
-    ALLERGY=st.radio(on_click=None "Do you have persistent allergy?",['Yes','No'])
+    ALLERGY=st.radio(on_click=None,"Do you have persistent allergy?",['Yes','No'])
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
     COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
     ALCOHOL_CONSUMING = st.radio("Do you consume alcohol?", ["Yes", "No"])
