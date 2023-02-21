@@ -26,7 +26,7 @@ loaded_model = pickle.load(open("modelll.pkl", "rb"))
 def predict_app():
     #st.title("Lung Cancer Prediction App")
     #Add the h1 heading
-    st.markdown("<h1>Lung Cancer Prediction</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Lung Cancer Prediction Tool</h1>", unsafe_allow_html=True)
     
     
     
