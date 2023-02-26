@@ -54,7 +54,7 @@ def predict_app():
 
     # Preprocess the features
      
-        features = [
+    features = [
            AGE,
            1 if GENDER == "Male" else 0,
            1 if TOBACCO_SMOKING == "Yes" else 0,
