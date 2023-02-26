@@ -39,7 +39,7 @@ def predict_app():
     
        # Get the user inputs for the 13 features
        
-    AGE = st.number_input("Age:", min_value=0,max_value=100,value=None)
+    AGE = st.number_input("Age:", min_value=0,max_value=100)
     GENDER = st.radio("Gender:", ["Male", "Female"],index=None)
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"], index=None)
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'],index=None)
