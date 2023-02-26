@@ -59,7 +59,7 @@ def predict_app():
   
      #Add a prediction button
     if st.button("Predict"):
-        if validate_inputs(inputs)
+        if validate_inputs(inputs):
           # Preprocess the features
      
            features = [
