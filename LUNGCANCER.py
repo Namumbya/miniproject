@@ -21,7 +21,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 # Load the trained model
 loaded_model = pickle.load(open("modelll.pkl", "rb"))
-
+#def validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS):
+ #   if AGE is None or GENDER is None or TOBACCO_SMOKING is None or ALLERGY is None or FATIGUE is None or COUGHING is None or ALCOHOL_CONSUMING is None or WHEEZING is None or SHORTNESS_OF_BREATH is None or CHEST_PAIN is None or SWALLOWING_DIFFICULTY is None or CHRONIC_DISEASE is None or YELLOW_FINGERS is None:
+  #      return False
+   # return True
+def validate_inputs(inputs):
+    for input in inputs:
+        if input in None:
+            return False
+    return True
 # Create a Streamlit app
 def predict_app():
     #st.title("Lung Cancer Prediction App")
@@ -29,42 +37,47 @@ def predict_app():
     st.markdown("<h1>Lung Cancer Prediction Tool</h1>", unsafe_allow_html=True)
     
     
-    
        # Get the user inputs for the 13 features
        
-    AGE = st.number_input("Age:", min_value=0,max_value=100)
-    GENDER = st.radio("Gender:", ["Male", "Female"])
-    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
-    ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
-    FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
-    COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
-    ALCOHOL_CONSUMING = st.radio("Do you consume alcohol?", ["Yes", "No"])
-    WHEEZING = st.radio("Do you experience wheezing?", ["Yes", "No"])
-    SHORTNESS_OF_BREATH = st.radio("Do you experience shortness of breath?", ["Yes", "No"])
-    CHEST_PAIN = st.radio("Do you experience chest pain?", ["Yes", "No"])
-    SWALLOWING_DIFFICULTY = st.radio("Do you experience difficulty swallowing?", ["Yes", "No"])
-    CHRONIC_DISEASE = st.radio("Do you have any chronic disease?", ["Yes", "No"])
-    YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No"])
-     
-    
-    # Preprocess the features
-    features = [
-        AGE,
-        1 if GENDER == "Male" else 0,
-        1 if TOBACCO_SMOKING == "Yes" else 0,
-        1 if ALLERGY== "Yes" else 0,
-        1 if FATIGUE == "Yes" else 0,
-        1 if COUGHING == "Yes" else 0,
-        1 if ALCOHOL_CONSUMING == "Yes" else 0,
-        1 if WHEEZING == "Yes" else 0,
-        1 if SHORTNESS_OF_BREATH == "Yes" else 0,
-        1 if CHEST_PAIN == "Yes" else 0,
-        1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
-        1 if CHRONIC_DISEASE == "Yes" else 0,
-        1 if YELLOW_FINGERS == "Yes" else 0
-    ]
-    #Add a prediction button
+    AGE = st.number_input("Age:", min_value=0,max_value=100,value=None)
+    GENDER = st.radio("Gender:", ["Male", "Female"],index=None)
+    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"], index=None)
+    ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'],index=None)
+    FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'],index=None)
+    COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"],index=None)
+    ALCOHOL_CONSUMING = st.radio("Do you consume alcohol?", ["Yes", "No"],index=None)
+    WHEEZING = st.radio("Do you experience wheezing?", ["Yes", "No"],index=None)
+    SHORTNESS_OF_BREATH = st.radio("Do you experience shortness of breath?", ["Yes", "No"],index=None)
+    CHEST_PAIN = st.radio("Do you experience chest pain?", ["Yes", "No"],index=None)
+    SWALLOWING_DIFFICULTY = st.radio("Do you experience difficulty swallowing?", ["Yes", "No"],index=None)
+    CHRONIC_DISEASE = st.radio("Do you have any chronic disease?", ["Yes", "No"],index=None)
+    YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No"],index=None)
+    # Preprocess the features only if the user has selected an option
+    #if GENDER is not None and TOBACCO_SMOKING is not None and ALLERGY is not None and FATIGUE is not None and COUGHING is not None and ALCOHOL_CONSUMING is not None and WHEEZING is not None and SHORTNESS_OF_BREATH is not None and CHEST_PAIN is not None and SWALLOWING_DIFFICULTY is not None and CHRONIC_DISEASE is not None and YELLOW_FINGERS is not None:
+    inputs = [AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS]
+
+  
+     #Add a prediction button
     if st.button("Predict"):
+        if validate_inputs(inputs):
+          # Preprocess the features
+     
+           features = [
+              AGE,
+              1 if GENDER == "Male" else 0,
+              1 if TOBACCO_SMOKING == "Yes" else 0,
+              1 if ALLERGY== "Yes" else 0,
+              1 if FATIGUE == "Yes" else 0,
+              1 if COUGHING == "Yes" else 0,
+              1 if ALCOHOL_CONSUMING == "Yes" else 0,
+              1 if WHEEZING == "Yes" else 0,
+              1 if SHORTNESS_OF_BREATH == "Yes" else 0,
+              1 if CHEST_PAIN == "Yes" else 0,
+              1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
+              1 if CHRONIC_DISEASE == "Yes" else 0,
+              1 if YELLOW_FINGERS == "Yes" else 0
+        ]
+
         # Make the prediction
         prediction = loaded_model.predict([features])[0]
         probability = loaded_model.predict_proba([features])[0][1]
