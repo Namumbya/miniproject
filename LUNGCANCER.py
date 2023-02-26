@@ -72,8 +72,8 @@ def predict_app():
 
      #Add a prediction button
     if st.button("Predict"):
-        if validate_inputs(inputs)
-        # Make the prediction
+        
+    # Make the prediction
         prediction = loaded_model.predict([features])[0]
         probability = loaded_model.predict_proba([features])[0][1]
     
