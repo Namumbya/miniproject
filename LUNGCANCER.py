@@ -87,13 +87,13 @@ def predict_app():
            return False
         return True
     if st.button('Predict'):
-    # Check if all required fields have been filled
+        # Check if all required fields have been filled
         if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
-           prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
-           st.write(prediction)
+            prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+            st.write(prediction)
         else:
-           st.warning('Please fill in all the required fields before making a prediction.')
+            st.warning('Please fill in all the required fields before making a prediction.')
 
 
 
@@ -109,14 +109,14 @@ def predict_app():
             st.write("You are unlikely to have lung cancer.")
         else:
             st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")'''
+        st.write(f"Probability: {probability:.2f}")
         
         
 
     
 # Run the Streamlit app
-#if __name__ == "__main__":
-#    predict_app()
+if __name__ == "__main__":
+    predict_app()'''
 
 
 
