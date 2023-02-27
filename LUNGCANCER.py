@@ -27,11 +27,8 @@ def predict_app():
     AGE = st.number_input("Age:", min_value=0,max_value=100)
     GENDER = st.radio("Gender:", ["Male", "Female"])
     #conditional statement to print
-    if (GENDER=='Male'):
-        st.success('Male')
-    else:
-        st.success('Female')
-    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
+    
+    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No","Not_ specified"],index=2)
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
     COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
