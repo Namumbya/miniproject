@@ -57,7 +57,7 @@ def predict_app():
       ]
 
      #Add a prediction button
-    if st.button("Predict"):
+    if st.button("Predict",on_click=predict_app,arg=(),kwargs={},key=None,disabled=not validate_inputs()):
         
     # Make the prediction
         prediction = loaded_model.predict([features])[0]
@@ -69,6 +69,7 @@ def predict_app():
         else:
             st.write("You are likely to have lung cancer.")
         st.write(f"Probability: {probability:.2f}")
+        pass
         
 
     
