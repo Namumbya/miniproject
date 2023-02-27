@@ -57,7 +57,7 @@ def predict_app():
       ]
 
      #Add a prediction button
-    if st.button("Predict",on_click=predict_app,arg=(),kwargs={},key=None,disabled=not validate_inputs()):
+    if st.button("Predict",on_click=predict_app,arg=(),kwargs={},key=None,disabled=not validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS)):
         
     # Make the prediction
         prediction = loaded_model.predict([features])[0]
