@@ -104,19 +104,7 @@ def predict_app():
 
 
 
-     #Add a prediction button
-    '''if st.button("Predict"):
-        
-    # Make the prediction
-        prediction = loaded_model.predict([features])[0]
-        probability = loaded_model.predict_proba([features])[0][1]
-    
-        # Show the results
-        if prediction == 0:
-            st.write("You are unlikely to have lung cancer.")
-        else:
-            st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")'''
+     
         
         
 
