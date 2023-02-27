@@ -115,8 +115,8 @@ def predict_app():
 
     
 # Run the Streamlit app
-#if __name__ == "__main__":
-#    predict_app()
+if __name__ == "__main__":
+    predict_app()
 
 
 
