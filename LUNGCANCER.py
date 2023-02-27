@@ -92,6 +92,12 @@ def predict_app():
         # Make prediction
             prediction =loaded_model.predict([features])[0]
             probability=loaded_model.predict_proba([features])[0][1]
+            #show results
+            if prediction==0:
+                st.write("You are unlikely to have lung cancer.")
+            else:
+                st.write("You are likely to have lung cancer")
+            st.write(f"probability:{probability:.2f}")
             st.write(prediction)
         else:
             st.warning('Please fill in all the required fields before making a prediction.')
