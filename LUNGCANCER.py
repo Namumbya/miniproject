@@ -91,6 +91,7 @@ def predict_app():
         if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
             prediction =loaded_model.predict([features])[0]
+            probability=loaded_model.predict_proba([features])[0]
             st.write(prediction)
         else:
             st.warning('Please fill in all the required fields before making a prediction.')
