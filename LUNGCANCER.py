@@ -89,7 +89,7 @@ def predict_app():
     # Check if all required fields have been filled
         if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
-           prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+           prediction = predict_app()
            #probability = loaded_model.predict_proba([features])[0][1]
            st.write(prediction)
         else:
@@ -115,8 +115,8 @@ def predict_app():
 
     
 # Run the Streamlit app
-if __name__ == "__main__":
-    predict_app()
+#if __name__ == "__main__":
+#    predict_app()
 
 
 
