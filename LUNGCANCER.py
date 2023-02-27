@@ -19,6 +19,7 @@ def predict_app():
     #st.title("Lung Cancer Prediction App")
     #Add the h1 heading
     st.markdown("<h1>Lung Cancer Prediction Tool</h1>", unsafe_allow_html=True)
+
     
     
        # Get the user inputs for the 13 features
@@ -30,7 +31,7 @@ def predict_app():
         st.success('Male')
     else:
         st.success('Female')
-    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
+    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"],index=None)
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
     COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
