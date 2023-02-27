@@ -61,31 +61,31 @@ def predict_app():
            1 if YELLOW_FINGERS == "Yes" else 0
       ]'''
     def check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
-    if not AGE:
-        return False
-    if not GENDER:
-        return False
-    if not TOBACCO_SMOKING:
-        return False
-    if ALLERGY is None:
-        return False
-    if FATIGUE is None:
-        return False
-    if COUGHING is None:
-        return False
-    if ALCOHOL_CONSUMING is None:
-        return False
-    if WHEEZING is None:
-        return False
-    if SHORTNESS_OF_BREATH is None:
-        return False
-    if CHEST_PAIN is None:
-        return False
-    if SWALLOWING_DIFFICULTY is None:
-        return False
-    if not YELLOW_FINGERS:
-        return False
-    return True
+        if not AGE:
+           return False
+        if not GENDER:
+           return False
+        if not TOBACCO_SMOKING:
+           return False
+        if ALLERGY is None:
+           return False
+        if FATIGUE is None:
+           return False
+        if COUGHING is None:
+           return False
+        if ALCOHOL_CONSUMING is None:
+           return False
+        if WHEEZING is None:
+           return False
+        if SHORTNESS_OF_BREATH is None:
+           return False
+        if CHEST_PAIN is None:
+           return False
+        if SWALLOWING_DIFFICULTY is None:
+           return False
+        if not YELLOW_FINGERS:
+           return False
+        return True
     if st.button('Predict'):
     # Check if all required fields have been filled
     if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
