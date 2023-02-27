@@ -93,12 +93,12 @@ def predict_app():
             prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
             st.write(prediction)
         else:
-            st.warning('Please fill in all the required fields before making a prediction.')
+            st.warning('Please fill in all the required fields before making a prediction.')'''
 
 
 
      #Add a prediction button
-    '''if st.button("Predict"):
+    if st.button("Predict"):
         
     # Make the prediction
         prediction = loaded_model.predict([features])[0]
