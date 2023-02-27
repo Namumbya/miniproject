@@ -7,10 +7,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 # Load the trained model
 loaded_model = pickle.load(open("modelll.pkl", "rb"))
-#def validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS):
- #   if AGE is None or GENDER is None or TOBACCO_SMOKING is None or ALLERGY is None or FATIGUE is None or COUGHING is None or ALCOHOL_CONSUMING is None or WHEEZING is None or SHORTNESS_OF_BREATH is None or CHEST_PAIN is None or SWALLOWING_DIFFICULTY is None or CHRONIC_DISEASE is None or YELLOW_FINGERS is None:
-  #      return False
-   # return True
+def validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS):
+    if AGE is None or GENDER is None or TOBACCO_SMOKING is None or ALLERGY is None or FATIGUE is None or COUGHING is None or ALCOHOL_CONSUMING is None or WHEEZING is None or SHORTNESS_OF_BREATH is None or CHEST_PAIN is None or SWALLOWING_DIFFICULTY is None or CHRONIC_DISEASE is None or YELLOW_FINGERS is None:
+        return False
+    return True
 
 # Create a Streamlit app
 def predict_app():
