@@ -24,10 +24,9 @@ def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHO
     
        # Get the user inputs for the 13 features
        
-    AGE = st.number_input("Age:", min_value=0,max_value=100)
+    AGE = st.number_input("Enter your age")
     GENDER = st.radio("Gender:", ["Male", "Female",'Not_specified'],index=2)
     #conditional statement to print
-
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No","Not_specified"],index=2)
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No',"Not_specified"],index=2)
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No','Not_specified'],index=2)
@@ -90,8 +89,8 @@ def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHO
     # Check if all required fields have been filled
         if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
-           #prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
-           prediction=loaded_model.predict([features])[0]
+           prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+           #prediction=loaded_model.predict([features])[0]
            probability = loaded_model.predict_proba([features])[0][1]
            st.write(prediction)
         else:
@@ -117,9 +116,9 @@ def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHO
 
     
 # Run the Streamlit app
-if __name__ == "__main__":
+'''if __name__ == "__main__":
 
-    predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+    predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)'''
 
 
 
