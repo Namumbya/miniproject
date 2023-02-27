@@ -23,7 +23,7 @@ def predict_app():
     
        # Get the user inputs for the 13 features
        
-    AGE = st.number_input("Age:", min_value=0,max_value=100)
+    AGE = st.number_input("Enter your Age:")
     GENDER = st.radio("Gender:", ["Male", "Female",'Not_specified'],index=2)
     #conditional statement to print
 
