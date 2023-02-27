@@ -110,13 +110,13 @@ def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHO
             st.write("You are unlikely to have lung cancer.")
         else:
             st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")'''
+        st.write(f"Probability: {probability:.2f}")
         
         
 
     
 # Run the Streamlit app
-'''if __name__ == "__main__":
+if __name__ == "__main__":
 
     predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)'''
 
