@@ -23,6 +23,11 @@ def predict_app():
        
     AGE = st.number_input("Age:", min_value=0,max_value=100)
     GENDER = st.radio("Gender:", ["Male", "Female"])
+    #conditional statement to print
+    if (GENDER=='Male'):
+        st.success('Male')
+    else:
+        st.success('Female')
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
@@ -36,7 +41,7 @@ def predict_app():
     YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No"])
     # Preprocess the features only if the user has selected an option
     #if GENDER is not None and TOBACCO_SMOKING is not None and ALLERGY is not None and FATIGUE is not None and COUGHING is not None and ALCOHOL_CONSUMING is not None and WHEEZING is not None and SHORTNESS_OF_BREATH is not None and CHEST_PAIN is not None and SWALLOWING_DIFFICULTY is not None and CHRONIC_DISEASE is not None and YELLOW_FINGERS is not None:
-    inputs = [AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS]
+    #inputs = [AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS]
 
     # Preprocess the features
      
@@ -57,7 +62,7 @@ def predict_app():
       ]
 
      #Add a prediction button
-    if st.button("Predict",on_click=predict_app,arg=(),kwargs={},key=None,disabled=not validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS)):
+    if st.button("Predict"):
         
     # Make the prediction
         prediction = loaded_model.predict([features])[0]
@@ -69,13 +74,13 @@ def predict_app():
         else:
             st.write("You are likely to have lung cancer.")
         st.write(f"Probability: {probability:.2f}")
-        pass
+        
         
 
     
 # Run the Streamlit app
-#if __name__ == "__main__":
- #   predict_app()
+if __name__ == "__main__":
+    predict_app()
 
 
 
