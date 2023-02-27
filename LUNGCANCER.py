@@ -3,21 +3,7 @@ import pickle
 import streamlit as st
 st.set_page_config()
 st.markdown("""
-<style>
 
-  h1 {
-    color: black;
-    font-family: Arial, sans-serif;
-    font-size: 36px;
-    text-align: center;
-    margin: 20px 0;
-    font-family: Arial, sans-serif;
-    backgorund-color:lightgray;
-
-  }
- 
- 
-  </style>
 """, unsafe_allow_html=True)
 # Load the trained model
 loaded_model = pickle.load(open("modelll.pkl", "rb"))
