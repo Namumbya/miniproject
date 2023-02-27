@@ -31,7 +31,7 @@ def predict_app():
         st.success('Male')
     else:
         st.success('Female')
-    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"],index=2)
+    TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
     COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
