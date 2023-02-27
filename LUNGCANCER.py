@@ -15,7 +15,7 @@ def validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, AL
     return True
 
 # Create a Streamlit app
-def predict_app():
+def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
     #st.title("Lung Cancer Prediction App")
     #Add the h1 heading
     st.markdown("<h1>Lung Cancer Prediction Tool</h1>", unsafe_allow_html=True)
