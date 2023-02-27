@@ -45,7 +45,7 @@ def predict_app():
 
     # Preprocess the features
      
-    '''features = [
+    features = [
            AGE,
            1 if GENDER == "Male" else 0,
            1 if TOBACCO_SMOKING == "Yes" else 0,
@@ -59,7 +59,7 @@ def predict_app():
            1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
            1 if CHRONIC_DISEASE == "Yes" else 0,
            1 if YELLOW_FINGERS == "Yes" else 0
-      ]'''
+      ]
     def check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         if not AGE:
            return False
@@ -91,6 +91,7 @@ def predict_app():
         if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
            prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+           probability = loaded_model.predict_proba([features])[0][1]
            st.write(prediction)
         else:
            st.warning('Please fill in all the required fields before making a prediction.')
