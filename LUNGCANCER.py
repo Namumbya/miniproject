@@ -25,12 +25,9 @@ def predict_app():
        # Get the user inputs for the 13 features
        
     AGE = st.number_input("Age:", min_value=0,max_value=100)
-    GENDER = st.radio("Gender:", ["Male", "Female"])
+    GENDER = st.radio("Gender:", ["Male", "Female",'Not_specified'],index=2)
     #conditional statement to print
-    if (GENDER=='Male'):
-        st.success('Male')
-    else:
-        st.success('Female')
+
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No","Not_specified"],index=2)
     ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No',"Not_specified"],index=2)
     FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No','Not_specified'],index=2)
