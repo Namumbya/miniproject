@@ -91,7 +91,7 @@ def predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHO
         # Make prediction
            prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
            #prediction=loaded_model.predict([features])[0]
-           probability = loaded_model.predict_proba([features])[0][1]
+           #probability = loaded_model.predict_proba([features])[0][1]
            st.write(prediction)
         else:
            st.warning('Please fill in all the required fields before making a prediction.')
