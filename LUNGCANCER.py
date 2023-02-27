@@ -9,13 +9,11 @@ st.markdown("""<style>
 """, unsafe_allow_html=True)
 # Load the trained model
 loaded_model = pickle.load(open("modelll.pkl", "rb"))
-#def validate_inputs(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS):
-#        return False
-    #return True
+
 
 # Create a Streamlit app
 def predict_app():
-    #st.title("Lung Cancer Prediction App")
+    
     #Add the h1 heading
     st.markdown("<h1>Lung Cancer Prediction Tool</h1>", unsafe_allow_html=True)
 
@@ -23,7 +21,7 @@ def predict_app():
     
        # Get the user inputs for the 13 features
        
-    AGE = st.number_input("Enter your Age:")
+    AGE = st.number_input("Age:", min_value=0,max_value=100)
     GENDER = st.radio("Gender:", ["Male", "Female",'Not_specified'],index=2)
     #conditional statement to print
 
@@ -38,10 +36,7 @@ def predict_app():
     SWALLOWING_DIFFICULTY = st.radio("Do you experience difficulty swallowing?", ["Yes", "No",'Not_specified'],index=2)
     CHRONIC_DISEASE = st.radio("Do you have any chronic disease?", ["Yes", "No",'Not_specified'],index=2)
     YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No",'Not_specified'],index=2)
-    # Preprocess the features only if the user has selected an option
-    #if GENDER is not None and TOBACCO_SMOKING is not None and ALLERGY is not None and FATIGUE is not None and COUGHING is not None and ALCOHOL_CONSUMING is not None and WHEEZING is not None and SHORTNESS_OF_BREATH is not None and CHEST_PAIN is not None and SWALLOWING_DIFFICULTY is not None and CHRONIC_DISEASE is not None and YELLOW_FINGERS is not None:
-    #inputs = [AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS]
-
+    
     # Preprocess the features
      
     features = [
@@ -97,26 +92,12 @@ def predict_app():
 
 
 
-     #Add a prediction button
-    '''if st.button("Predict"):
-        
-    # Make the prediction
-        prediction = loaded_model.predict([features])[0]
-        probability = loaded_model.predict_proba([features])[0][1]
     
-        # Show the results
-        if prediction == 0:
-            st.write("You are unlikely to have lung cancer.")
-        else:
-            st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")'''
-        
-        
 
     
 # Run the Streamlit app
-if __name__ == "__main__":
-    predict_app()
+#if __name__ == "__main__":
+ #   predict_app()
 
 
 
