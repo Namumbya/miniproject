@@ -45,7 +45,7 @@ def predict_app():
 
     # Preprocess the features
      
-    features = [
+    '''features = [
            AGE,
            1 if GENDER == "Male" else 0,
            1 if TOBACCO_SMOKING == "Yes" else 0,
@@ -59,10 +59,46 @@ def predict_app():
            1 if SWALLOWING_DIFFICULTY == "Yes" else 0,
            1 if CHRONIC_DISEASE == "Yes" else 0,
            1 if YELLOW_FINGERS == "Yes" else 0
-      ]
+      ]'''
+      def check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
+    if not AGE:
+        return False
+    if not GENDER:
+        return False
+    if not TOBACCO_SMOKING:
+        return False
+    if ALLERGY is None:
+        return False
+    if FATIGUE is None:
+        return False
+    if COUGHING is None:
+        return False
+    if ALCOHOL_CONSUMING is None:
+        return False
+    if WHEEZING is None:
+        return False
+    if SHORTNESS_OF_BREATH is None:
+        return False
+    if CHEST_PAIN is None:
+        return False
+    if SWALLOWING_DIFFICULTY is None:
+        return False
+    if not YELLOW_FINGERS:
+        return False
+    return True
+    if st.button('Predict'):
+    # Check if all required fields have been filled
+    if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
+        # Make prediction
+        prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
+        st.write(prediction)
+    else:
+        st.warning('Please fill in all the required fields before making a prediction.')
+
+
 
      #Add a prediction button
-    if st.button("Predict"):
+    '''if st.button("Predict"):
         
     # Make the prediction
         prediction = loaded_model.predict([features])[0]
@@ -80,7 +116,7 @@ def predict_app():
     
 # Run the Streamlit app
 if __name__ == "__main__":
-    predict_app()
+    predict_app()'''
 
 
 
