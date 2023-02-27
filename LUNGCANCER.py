@@ -32,16 +32,16 @@ def predict_app():
     else:
         st.success('Female')
     TOBACCO_SMOKING = st.radio("Do you smoke?", ["Yes", "No","Not_specified"],index=2)
-    ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No'])
-    FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No'])
-    COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
-    ALCOHOL_CONSUMING = st.radio("Do you consume alcohol?", ["Yes", "No"])
-    WHEEZING = st.radio("Do you experience wheezing?", ["Yes", "No"])
-    SHORTNESS_OF_BREATH = st.radio("Do you experience shortness of breath?", ["Yes", "No"])
-    CHEST_PAIN = st.radio("Do you experience chest pain?", ["Yes", "No"])
-    SWALLOWING_DIFFICULTY = st.radio("Do you experience difficulty swallowing?", ["Yes", "No"])
-    CHRONIC_DISEASE = st.radio("Do you have any chronic disease?", ["Yes", "No"])
-    YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No"])
+    ALLERGY=st.radio("Do you have persistent allergy?",['Yes','No',"Not_specified"],index=2)
+    FATIGUE=st.radio("Do you have persistent fatigue?",['Yes','No','Not_specified'],index=2)
+    COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No",'Not_specified'],index=2)
+    ALCOHOL_CONSUMING = st.radio("Do you consume alcohol?", ["Yes", "No",'Not_specified'],index=2)
+    WHEEZING = st.radio("Do you experience wheezing?", ["Yes", "No",'Not_specified'],index=2)
+    SHORTNESS_OF_BREATH = st.radio("Do you experience shortness of breath?", ["Yes", "No",'Not_specified'],index=2)
+    CHEST_PAIN = st.radio("Do you experience chest pain?", ["Yes", "No",'Not_specified'],index=2)
+    SWALLOWING_DIFFICULTY = st.radio("Do you experience difficulty swallowing?", ["Yes", "No",'Not_specified'],index=2)
+    CHRONIC_DISEASE = st.radio("Do you have any chronic disease?", ["Yes", "No",'Not_specified'],index=2)
+    YELLOW_FINGERS = st.radio("Do you have yellow fingers or nails?", ["Yes", "No",'Not_specified'],index=2)
     # Preprocess the features only if the user has selected an option
     #if GENDER is not None and TOBACCO_SMOKING is not None and ALLERGY is not None and FATIGUE is not None and COUGHING is not None and ALCOHOL_CONSUMING is not None and WHEEZING is not None and SHORTNESS_OF_BREATH is not None and CHEST_PAIN is not None and SWALLOWING_DIFFICULTY is not None and CHRONIC_DISEASE is not None and YELLOW_FINGERS is not None:
     #inputs = [AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, CHRONIC_DISEASE, YELLOW_FINGERS]
