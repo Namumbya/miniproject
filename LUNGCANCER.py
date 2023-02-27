@@ -2,7 +2,11 @@
 import pickle
 import streamlit as st
 st.set_page_config()
-st.markdown("""
+st.markdown("""<style>
+div[role='radiogroup']>:first-child{
+    display:none !important;
+}
+    </style>
 
 """, unsafe_allow_html=True)
 # Load the trained model
