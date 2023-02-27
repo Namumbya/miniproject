@@ -109,14 +109,14 @@ def predict_app():
             st.write("You are unlikely to have lung cancer.")
         else:
             st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")
+        st.write(f"Probability: {probability:.2f}")'''
         
         
 
     
 # Run the Streamlit app
 if __name__ == "__main__":
-    predict_app()'''
+    predict_app()
 
 
 
