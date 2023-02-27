@@ -60,7 +60,7 @@ def predict_app():
            1 if CHRONIC_DISEASE == "Yes" else 0,
            1 if YELLOW_FINGERS == "Yes" else 0
       ]'''
-    def check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
+    '''def check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         if not AGE:
            return False
         if not GENDER:
@@ -86,9 +86,9 @@ def predict_app():
         if not YELLOW_FINGERS:
            return False
         return True
-    if st.button('Predict'):
+        if st.button('Predict'):
         # Check if all required fields have been filled
-        if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
+           if check_fields(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS):
         # Make prediction
             prediction = predict_app(AGE, GENDER, TOBACCO_SMOKING, ALLERGY, FATIGUE, COUGHING, ALCOHOL_CONSUMING, WHEEZING, SHORTNESS_OF_BREATH, CHEST_PAIN, SWALLOWING_DIFFICULTY, YELLOW_FINGERS)
             st.write(prediction)
@@ -109,14 +109,14 @@ def predict_app():
             st.write("You are unlikely to have lung cancer.")
         else:
             st.write("You are likely to have lung cancer.")
-        st.write(f"Probability: {probability:.2f}")
+        st.write(f"Probability: {probability:.2f}")'''
         
         
 
     
 # Run the Streamlit app
 if __name__ == "__main__":
-    predict_app()'''
+    predict_app()
 
 
 
