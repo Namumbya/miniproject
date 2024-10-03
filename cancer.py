@@ -1,39 +1,43 @@
-# Import necessary libraries
 import pickle
 import numpy as np
 import streamlit as st
-import streamlit_authenticator as stauth
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Set up Streamlit Authenticator with hashed passwords
-users = {
-    "usernames": {
-        "user1": {
-            "name": "User One",
-            "password": "$2b$12$KIXAsEDN4b1TtZOH1FOx6u/XI1GpPUu2.F5vOwSjdOFmfy6imwkmG"  # Pre-hashed password
-        }
-    }
-}
+# Simplified user credentials
+USER_CREDENTIALS = {"user1": "password123"}  # Modify username and password here
 
-authenticator = stauth.Authenticate(
-    users,
-    "my_app",
-    "auth",
-    cookie_expiry_days=30,
-)
+# Initialize session state for login status
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
 
-name, authentication_status, username = authenticator.login("Login", "main", "Submit")
+# Function to handle login
+def login(username, password):
+    if username in USER_CREDENTIALS and USER_CREDENTIALS[username] == password:
+        st.session_state.logged_in = True
+        st.session_state.username = username
+    else:
+        st.error("Invalid username or password.")
 
-if authentication_status:
-    st.sidebar.title(f"Welcome {name}")
-    authenticator.logout("Logout", "sidebar")
+# Function for the login page
+def login_page():
+    st.title("Login")
 
+    username_input = st.text_input("Username")
+    password_input = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+        login(username_input, password_input)
+
+# Function for the home page (lung cancer prediction app)
+def home_page():
+    st.title(f"Welcome {st.session_state.username}!")
+    
     # Load the trained model
     loaded_model = pickle.load(open("modelll.pkl", "rb"))
 
-    # Create a Streamlit app
+    # Lung cancer prediction function
     def predict_app():
         st.title("Lung Cancer Prediction App")
 
@@ -41,6 +45,7 @@ if authentication_status:
         AGE = st.number_input("Age:", min_value=0, max_value=100)
         GENDER = st.radio("Gender:", ["Male", "Female"])
         SMOKING = st.radio("Do you smoke?", ["Yes", "No"])
+        ANXIETY = st.radio("Do you have anxiety?", ["Yes", "No"])
         ALLERGY = st.radio("Do you have persistent allergy?", ["Yes", "No"])
         FATIGUE = st.radio("Do you have persistent fatigue?", ["Yes", "No"])
         COUGHING = st.radio("Do you have a persistent cough?", ["Yes", "No"])
@@ -60,6 +65,7 @@ if authentication_status:
             1 if GENDER == "Male" else 0,
             1 if SMOKING == "Yes" else 0,
             1 if ALLERGY == "Yes" else 0,
+            1 if ANXIETY=='Yes' else 0,
             1 if FATIGUE == "Yes" else 0,
             1 if COUGHING == "Yes" else 0,
             1 if ALCOHOL_CONSUMING == "Yes" else 0,
@@ -114,11 +120,11 @@ if authentication_status:
         except Exception as e:
             st.error(f"Failed to send email: {e}")
 
-    # Run the app
-    if __name__ == "__main__":
-        predict_app()
+    # Run the prediction app
+    predict_app()
 
-elif authentication_status == False:
-    st.error("Username/password is incorrect")
-elif authentication_status == None:
-    st.warning("Please enter your username and password")
+# Navigation logic
+if not st.session_state.logged_in:
+    login_page()
+else:
+    home_page()
