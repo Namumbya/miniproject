@@ -1,0 +1,17 @@
+[project]
+name = "lung-risk-screening"
+version = "0.1.0"
+description = "Educational lung-cancer risk screening app (not a diagnosis)"
+requires-python = ">=3.11"
+dependencies = [
+    "streamlit>=1.40",
+    "scikit-learn==1.9.0",
+    "pandas>=2.2",
+    "joblib>=1.4",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
