@@ -1,0 +1,10 @@
+__pycache__/
+.ipynb_checkpoints/
+.pytest_cache/
+~$*
+~WRL*.tmp
+*.lnk
+.env
+.streamlit/secrets.toml
+.hypothesis/
+.venv/
